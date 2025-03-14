@@ -44,7 +44,7 @@ function startStopTimer() {
                 seconds--;
             }
             updateDisplay();
-        }, 1);   //change to make timer go faster/slower
+        }, 1000);   //change to make timer go faster/slower (ms)
         startButton.innerText = "❚❚ Pause";
     }
     isRunning = !isRunning; // Toggle running state
