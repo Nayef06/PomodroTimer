@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pomodoro Timer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <h1>Pomodoro Timer</h1>
+        <h5>Work in Intervals, Rest in Between</h5>
+    </header>
+
+    <div class="timer">
+        <input type="text" id="task" placeholder="Enter Your Task Here"spellcheck="false" autocomplete="off">
+
+        <h2 id="time"> 25:00</h2>
+        <p id="label">MINUTES <span>SECONDS</span></p>
+        <div class="btn_container">
+            <button class="btns" id="start">▶ &nbsp;Start</button>
+            <button class="btns" id="reset">⟳ &nbsp;Reset</button>
+            <button class="btns" id="settings">⚙ &nbsp;Settings</button>
+        </div>
+        <button id="theme">☼</button>
+    </div>
+
+    <div class="footer">
+        <h3>What Is Pomodoro?</h3>
+        <p>The Pomodoro Technique is a time management method that involves breaking work into intervals called <span class="important">Pomodoros</>, followed by short breaks.</p>
+    
+            <h3>Steps:</h3>
+            <ol>
+                <li><strong>Choose a task</strong> to work on.</li>
+                <li><strong>Set a timer</strong> for 25 minutes (one Pomodoro).</li>
+                <li><strong>Work on the task</strong> until the timer rings.</li>
+                <li><strong>Take a 5-minute break</strong> after each Pomodoro.</li>
+                <li>After <strong>four Pomodoros</strong>, take a <strong>longer break</strong> (15-30 minutes).</li>
+            </ol>
+        
+            <h3>Benefits:</h3>
+            <ul>
+                <li>Improves focus and productivity.</li>
+                <li>Prevents burnout with regular breaks.</li>
+                <li>Helps maintain consistent work intervals.</li>
+            </ul>
+    </div>
+    <audio id="Alarm" src="alarm.mp3"></audio>
+    <script src="pomodoro.js"></script>
+</body>
+</html>

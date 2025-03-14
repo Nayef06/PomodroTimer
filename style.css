@@ -1,0 +1,260 @@
+/* Selection Styles */
+::selection {
+    background-color: #999fc2;  /* Dark mode: #999fc2 || Light mode: #6e7fa8 */
+    color: #21232f;             /* Dark mode: #f0f1f9 || Light mode: #21232f */
+}
+
+/* General Body Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: #21232f;
+    margin: 0;
+    line-height: .1em;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+
+}
+
+header {
+    background-color: #21232f;  /* Dark mode: Dark header */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    height: 50px;
+}
+
+footer {
+    color: #f0f1f9;
+    justify-self: center;
+    line-height: normal;
+    width: 600px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* Light mode styles */
+body.light-mode {
+    color: #21232f;  /* Dark text */
+    background-color: #f0f1f9;  /* Light background                     SWAP 2*/
+}
+
+body.light-mode header {
+    background-color: #f0f1f9;  /* Light header                             SWAP 2 d6e1e8*/              
+    color: #21232f;  /* Dark text */
+}
+
+body.light-mode .timer {
+    background-color: #c6d2da33;  /* Light background for timer               SWAP 1 f0f1f9*/
+}
+
+body.light-mode .btns {
+    background-color: #1db3eb;  /* Blue buttons */
+}
+
+
+body.light-mode #theme {
+    color: #21232f;
+    background-color: white;                                        /*SWAP 2*/
+}
+
+body.light-mode #task {
+    color: #21232f;
+}
+
+body.light-mode .footer {
+    color: #21232f; /* Dark footer text */
+    transition: background-color 0s ease, color 0.3s ease, transform 0.3s ease;
+
+}
+
+body.light-mode #task {
+    color: #21232f; /* Dark text in the input field */
+}
+
+body.light-mode #task::placeholder {
+    color: #666; /* Lighter placeholder text in light mode */
+}
+
+body.light-mode .timer #time {
+    color: #21232f; /* Timer text changes to dark in light mode */
+}
+
+body.light-mode #task:focus {
+    color: #000; /* Dark text when input is focused */
+}
+
+/* Selection Styles */
+body.light-mode ::selection {
+    background-color: #6e7fa8;
+    color: #21232f;
+}
+
+/* Button Container */
+body.light-mode .btn_container {
+    display: flex;
+    justify-content: center;
+}
+
+body.light-mode #task {
+    background-color: transparent;
+}
+
+/* Header Styles */
+header {
+    background-color: #21232f;  /* Dark mode: #21232f || Light mode: #f0f1f9 */
+    text-align: center;
+    padding: 20px 0;
+    height: 50px;
+}
+
+h1 {
+    font-weight: 900;
+}
+
+h5 {
+    font-weight: normal;
+    font-size: 15px;
+    color: #8f99a8;             /* Dark mode: #8f99a8 || Light mode: #666 */
+}
+
+/* Timer Styles */
+.timer {
+    color: #f0f1f9;             /* Dark mode: #f0f1f9 || Light mode: #21232f */
+    line-height: 1;
+    height: 400px; 
+    text-align: center;
+    font-size: 150px;
+    background-color: #313448;  /* Dark mode: #313448 || Light mode: #d6e1e8 */
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #1db3eb;
+    user-select: none;
+}
+
+h2 {
+    margin: 0; /* Remove any default margin for consistency */
+    margin-top: -40px;
+    margin-bottom: -25px;
+}
+
+#label {
+    font-size: 14px;
+    color: #8f99a8;     /* Dark mode: #8f99a8 || Light mode: #444 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 255px; /* spacing between min and sec */
+    margin-bottom: 25px;
+}
+
+#time {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#task {
+    margin-bottom: 30px;        /*How far above the time*/
+    z-index: 99;
+    background-color: #1db4eb00;    /* Dark mode: #1db4eb00 || Light mode: #1db4eb00 */
+    border: none;
+    border-bottom: 2px solid #8f99a8;   /* Dark mode: #8f99a8 || Light mode: #444 */
+    font-size: 40px;
+    color: #8f99a8;                     /* Dark mode: #8f99a8 || Light mode: #333 */
+    font-weight: 700;
+    text-align: center;
+    width: 350px;
+}
+
+#task::placeholder {
+    color: #8f99a8;                 /* Dark mode: #8f99a8 || Light mode: #888 */
+    font-style: italic;
+    font-size: 27px;
+    font-weight: normal;
+}
+
+#task:not(:placeholder-shown) {
+    border-bottom: 2px solid #8f99a800; /* Dark mode: #8f99a800 || Light mode: #8f99a800 */
+    width: 90vw;
+}
+
+#task:focus {
+    outline: none;
+    color: #f0f1f9a4;   /* Dark mode: #f0f1f9a4 || Light mode: #21232f */
+}
+
+/* Button Container */
+.btn_container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Button Styles */
+.btns {
+    font-size: 18px;
+    border: none;
+    border-radius: 2em;
+    padding: 14px 30px;
+    margin: 15px;
+    margin-bottom: 20px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+#start {
+    background-color: #43d688;
+    display: block;
+}
+
+#start:hover {
+    background-color: #43d6888e;
+    color: #ffffffda;
+}
+
+#reset {
+    background-color: #8495b6;
+    display: block;
+}
+
+#reset:hover {
+    background-color: #8495b68e;
+    color: #ffffffda;
+}
+
+#settings {
+    background-color: #1db3eb;
+    display: block;
+}
+
+#settings:hover {
+    background-color: #1db3eb8e;
+    color: #ffffffda;
+}
+
+/* Footer Styles */
+.footer {
+    color: #f0f1f9;         /* Dark mode: #f0f1f9 || Light mode: #21232f */
+    justify-self: center;
+    line-height: normal;
+    width: 600px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/*Dark-Light Mode*/
+#theme{
+    position: absolute;
+    top:100px;
+    right: 15px;
+    background-color: #21232f;      /* Dark mode: #21232f || Light mode: #f0f1f9 */
+    border-radius: 99px;
+    border: 0px solid;
+    font-size: large;
+    font-weight: bolder;
+    color: #f0f1f9bb;               /* Dark mode: #f0f1f9bb || Light mode: #21232f */
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    font-size: 20px;
+}
