@@ -258,3 +258,31 @@ h2 {
     text-align: center;
     font-size: 20px;
 }
+
+/*Mobile*/
+@media (max-width: 767px) {
+    .footer {
+      font-size: 1.5vh;
+      width: 70vw;
+    }
+    .btns {
+    font-size: 14px;
+    }
+    #time{
+        margin-top: 0px;
+        font-size: 30vw;
+    }
+    #label{
+        gap: 35vw;
+        font-size: 3vw;
+    }
+    #theme{
+        display: none;
+    }
+    #task {
+    display: none;
+    }
+    .timer{
+        margin-top: 10px;
+    }
+}  
