@@ -98,6 +98,9 @@ body.light-mode .btn_container {
 body.light-mode #task {
     background-color: transparent;
 }
+body.light-mode #settingsMenu{
+    background-color: #c6d2da33;
+}
 
 /* Header Styles */
 header {
@@ -169,6 +172,7 @@ h2 {
 #task::placeholder {
     color: #8f99a8;                 /* Dark mode: #8f99a8 || Light mode: #888 */
     font-style: italic;
+    font-weight: 900;
     font-size: 27px;
     font-weight: normal;
 }
@@ -241,6 +245,26 @@ h2 {
     font-size: 18px;
     margin-top: 20px;
 }
+
+
+#settingsMenu{
+    border: .4vw solid #1db3eb;
+    text-align: center;
+    background-color: #313448;
+    justify-self: center;
+    margin: 15px;
+    width: 75vw;
+    border-radius: 2em;
+    max-width: 800px;
+}
+#UDE{
+    font-size: clamp(0px, 20vw, 175px);
+}
+#CS{
+    font-size: clamp(0px, 4vw, 40px);
+    font-style: italic;
+}
+
 
 /*Dark-Light Mode*/
 #theme{
