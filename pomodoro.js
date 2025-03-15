@@ -1,3 +1,9 @@
+/* TODO LIST:
+    SETTINGS
+        MIN/SEC
+    MOBILE FREINDLY CSS
+    CHANGE COLOR ON BREAK
+*/
 let timer;
 let isRunning = false;
 let minutes = 25;
@@ -44,7 +50,7 @@ function startStopTimer() {
                 seconds--;
             }
             updateDisplay();
-        }, 1000);   //change to make timer go faster/slower (ms)
+        }, 1000);   //change to make timer go faster/slower
         startButton.innerText = "❚❚ Pause";
     }
     isRunning = !isRunning; // Toggle running state
@@ -64,6 +70,26 @@ startButton.addEventListener('click', startStopTimer);
 resetButton.addEventListener('click', resetTimer);
 
 updateDisplay();
+
+
+/* Settings Button */
+document.getElementById("settings").addEventListener("click", function() {
+    let settingsMenu = document.getElementById("settingsMenu");
+
+    if (!settingsMenu) {
+        document.getElementById("div1").insertAdjacentHTML("afterend", 
+            '<div id="settingsMenu"> <p id="UDE">🙃</p> <p id="CS">Settings Menu Coming Soon!</p> </div>'
+        );
+    } else {
+        settingsMenu.remove();
+        
+    }
+    let footer = document.querySelector(".footer");
+
+
+});
+
+
 
 
 
