@@ -18,13 +18,17 @@
         <input type="text" id="task" placeholder="What Are You Working On?"spellcheck="false" autocomplete="off">
 
         <h2 id="time"> 25:00</h2>
+        <p id="status">Work Time</p>
         <p id="label">MINUTES <span>SECONDS</span></p>
         <div class="btn_container">
             <button class="btns" id="start">▶ &nbsp;Start</button>
             <button class="btns" id="reset">⟳ &nbsp;Reset</button>
             <button class="btns" id="settings">⚙ &nbsp;Settings</button>
+            <button class="btns" id="todoBtn">☲ &nbsp;Todo</button>
         </div>
-        <button id="theme">☼</button>
+        <!-- floating fullscreen control (small circle in corner) -->
+        <button id="fullscreen" class="fullscreen-btn" aria-label="Toggle fullscreen">⤢</button>
+        <!-- theme toggle removed; app is dark-only -->
     </div>
 
 
@@ -51,6 +55,19 @@
             </ul>
     </div>
     <audio id="Alarm" src="alarm.mp3"></audio>
+    <!-- Todo sidebar -->
+    <aside id="todoSidebar" aria-hidden="true">
+        <div class="todo-header">
+            <h3>Todo List</h3>
+            <button id="closeTodo" aria-label="Close todo">✕</button>
+        </div>
+        <div class="todo-controls">
+            <input id="newTaskInput" type="text" placeholder="Add a new task" autocomplete="off">
+            <button id="addTaskBtn" class="btns">Add</button>
+        </div>
+        <ul id="todoList" class="todo-list" aria-label="Tasks"></ul>
+        <div class="todo-footer">Top task is synced with the timer title.</div>
+    </aside>
     <script src="pomodoro.js"></script>
 </body>
 </html>

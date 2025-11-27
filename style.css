@@ -32,75 +32,7 @@ footer {
     margin-top: 20px;
 }
 
-/* Light mode styles */
-body.light-mode {
-    color: #21232f;  /* Dark text */
-    background-color: #f0f1f9;  /* Light background                     SWAP 2*/
-}
-
-body.light-mode header {
-    background-color: #f0f1f9;  /* Light header                             SWAP 2 d6e1e8*/              
-    color: #21232f;  /* Dark text */
-}
-
-body.light-mode .timer {
-    background-color: #c6d2da33;  /* Light background for timer               SWAP 1 f0f1f9*/
-}
-
-body.light-mode .btns {
-    background-color: #1db3eb;  /* Blue buttons */
-}
-
-
-body.light-mode #theme {
-    color: #21232f;
-    background-color: white;                                        /*SWAP 2*/
-}
-
-body.light-mode #task {
-    color: #21232f;
-}
-
-body.light-mode .footer {
-    color: #21232f; /* Dark footer text */
-    transition: background-color 0s ease, color 0.3s ease, transform 0.3s ease;
-
-}
-
-body.light-mode #task {
-    color: #21232f; /* Dark text in the input field */
-}
-
-body.light-mode #task::placeholder {
-    color: #666; /* Lighter placeholder text in light mode */
-}
-
-body.light-mode .timer #time {
-    color: #21232f; /* Timer text changes to dark in light mode */
-}
-
-body.light-mode #task:focus {
-    color: #000; /* Dark text when input is focused */
-}
-
-/* Selection Styles */
-body.light-mode ::selection {
-    background-color: #6e7fa8;
-    color: #21232f;
-}
-
-/* Button Container */
-body.light-mode .btn_container {
-    display: flex;
-    justify-content: center;
-}
-
-body.light-mode #task {
-    background-color: transparent;
-}
-body.light-mode #settingsMenu{
-    background-color: #c6d2da33;
-}
+/* Light mode removed */
 
 /* Header Styles */
 header {
@@ -124,7 +56,8 @@ h5 {
 .timer {
     color: #f0f1f9;             /* Dark mode: #f0f1f9 || Light mode: #21232f */
     line-height: 1;
-    height: 400px; 
+    min-height: 360px;
+    padding: 24px 0;
     text-align: center;
     font-size: 150px;
     background-color: #313448;  /* Dark mode: #313448 || Light mode: #d6e1e8 */
@@ -137,23 +70,28 @@ h5 {
 }
 
 h2 {
-    margin: 0; /* Remove any default margin for consistency */
-    margin-top: -40px;
-    margin-bottom: -25px;
+    margin: 0 0 6px 0; /* clean spacing around the big timer number */
 }
 
 #label {
     font-size: 14px;
     color: #8f99a8;     /* Dark mode: #8f99a8 || Light mode: #444 */
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 255px; /* spacing between min and sec */
-    margin-bottom: 25px;
+    width: 360px; /* fixed container for the labels to align under the timer */
+    margin: 0 auto 20px auto;
 }
 
 #time {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+#status {
+    font-size: 22px;
+    margin-top: 6px;
+    color: #a8b0c8;
+    font-weight: 700;
 }
 
 #task {
@@ -206,6 +144,12 @@ h2 {
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
+/* Todo button color: user requested #21232F */
+#todoBtn {
+    background-color: #21232F;
+    color: #ffffff;
+}
+
 #start {
     background-color: #43d688;
     display: block;
@@ -248,14 +192,15 @@ h2 {
 
 
 #settingsMenu{
-    border: .4vw solid #1db3eb;
+    border: 6px solid #1db3eb; /* thinner, consistent accent */
     text-align: center;
-    background-color: #313448;
-    justify-self: center;
-    margin: 15px;
-    width: 75vw;
-    border-radius: 2em;
-    max-width: 800px;
+    background-color: #2f3440; /* slightly darker to match the site tone */
+    margin: 20px auto; /* center horizontally */
+    width: calc(100% - 64px);
+    max-width: 760px;
+    border-radius: 24px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 #UDE{
     font-size: clamp(0px, 20vw, 175px);
@@ -265,22 +210,293 @@ h2 {
     font-style: italic;
 }
 
+/* Settings form */
+/* removed duplicate padding rule above; consolidated in main #settingsMenu */
 
-/*Dark-Light Mode*/
-#theme{
-    position: absolute;
-    top:100px;
-    right: 15px;
-    background-color: #21232f;      /* Dark mode: #21232f || Light mode: #f0f1f9 */
-    border-radius: 99px;
-    border: 0px solid;
-    font-size: large;
-    font-weight: bolder;
-    color: #f0f1f9bb;               /* Dark mode: #f0f1f9bb || Light mode: #21232f */
-    height: 30px;
-    width: 30px;
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+    max-width: 520px;
+    box-sizing: border-box;
+    margin: 0 auto; /* center the form inside the panel */
+}
+
+.settings-form h3 {
+    margin: 0 0 6px 0;
+}
+
+.setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 420px; /* limit row width but allow centering */
+    gap: 12px;
+    margin: 0 auto; /* center each row */
+}
+
+.label-text {
+    color: #cfd6e6;
+    font-size: 16px;
+}
+
+.setting-row input[type="number"] {
+    width: 100px;
+    padding: 8px 12px;
+    border-radius: 14px; /* pill-like */
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.06);
+    color: #f0f1f9;
     text-align: center;
-    font-size: 20px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.45);
+    transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.06s ease;
+}
+
+.settings-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.settings-actions {
+    justify-content: center;
+}
+
+/* Buttons inside settings; make Save prominent and Cancel subtle */
+.settings-actions .btns {
+    padding: 10px 28px;
+    font-size: 16px;
+    border-radius: 28px;
+}
+
+#settingsSave {
+    background-color: #43d688; /* green save button */
+    color: #072014; /* dark text on green */
+}
+
+#settingsCancel {
+    background-color: transparent;
+    color: #cfd6e6;
+    border: 2px solid rgba(255,255,255,0.08);
+}
+
+/* Input focus styles */
+.setting-row input[type="number"]:focus {
+    outline: none;
+    background: rgba(255,255,255,0.12);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.55), 0 0 0 4px rgba(29,179,235,0.06);
+    transform: translateY(-1px);
+}
+
+/* Placeholder color */
+.setting-row input[type="number"]::placeholder {
+    color: rgba(255,255,255,0.55);
+}
+
+/* Soften settings panel cyan border so it blends with site */
+#settingsMenu {
+    border-color: #26b0e8; /* slightly softer cyan */
+}
+
+/* Hover states for buttons */
+#settingsSave:hover {
+    filter: brightness(0.95);
+}
+#settingsCancel:hover {
+    background: rgba(255,255,255,0.02);
+    border-color: rgba(255,255,255,0.12);
+}
+
+/* Make inputs and labels visually match site */
+.settings-form {
+    background: transparent;
+}
+
+/* Responsive: shrink setting row on small screens */
+@media (max-width: 480px) {
+    .setting-row {
+        width: 90%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .setting-row input[type="number"] {
+        width: 100%;
+        margin-top: 6px;
+    }
+}
+
+/* Slight visual theme change when on break */
+/* break-theme removed; confetti will run during breaks instead */
+
+
+/* Fullscreen mode: when body has .fullscreen-mode show only timer, task, status and start button */
+body.fullscreen-mode {
+    overflow: hidden;
+}
+
+body.fullscreen-mode header,
+body.fullscreen-mode .footer,
+body.fullscreen-mode #label,
+body.fullscreen-mode #settings,
+body.fullscreen-mode #reset,
+body.fullscreen-mode #settingsMenu {
+    display: none !important;
+}
+
+body.fullscreen-mode .timer {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    margin: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #313448; /* slightly different dark for fullscreen */
+    border-bottom: none;
+    font-size: 18vw; /* big timer */
+}
+
+body.fullscreen-mode #time {
+    font-size: 16vw;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+body.fullscreen-mode #task {
+    display: block;
+    width: min(70vw, 900px);
+    font-size: 3.5vw;
+    border-bottom: none;
+    color: #e6eef6;
+    margin-bottom: 12px;
+}
+
+body.fullscreen-mode .btn_container { /* show only the start button */
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+body.fullscreen-mode .btns { /* hide other buttons except #start and #fullscreen */
+    display: none !important;
+}
+
+body.fullscreen-mode #start,
+body.fullscreen-mode #fullscreen {
+    display: inline-block !important;
+}
+
+body.fullscreen-mode #status {
+    font-size: 3.5vw;
+    margin-top: 6px;
+    color: #a8b0c8;
+}
+
+/* Make sure fullscreen mode is responsive and readable */
+@media (max-width: 600px) {
+    body.fullscreen-mode #time { font-size: 36vw; }
+    body.fullscreen-mode #task { font-size: 5.2vw; }
+    body.fullscreen-mode #status { font-size: 4.5vw; }
+}
+
+/* Theme toggle removed - app is dark-only */
+
+/* Floating fullscreen button (small circle in the corner) */
+.fullscreen-btn {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1db3eb;
+    color: #081a21;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0px solid rgba(255,255,255,0.06);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    cursor: pointer;
+    z-index: 99999;
+    font-size: 16px;
+}
+
+.fullscreen-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* When site is in break-mode the fullscreen button should use the break accent */
+
+
+/* Ensure fullscreen button remains visible in fullscreen-mode */
+body.fullscreen-mode .fullscreen-btn {
+    display: flex !important;
+}
+
+/* Todo Sidebar */
+#todoSidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 340px;
+    max-width: 92vw;
+    background: #1f2330;
+    border-left: 1px solid rgba(255,255,255,0.04);
+    box-shadow: -8px 0 24px rgba(0,0,0,0.5);
+    transform: translateX(110%);
+    transition: transform 260ms ease;
+    z-index: 100000;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}
+
+#todoSidebar.open {
+    transform: translateX(0);
+}
+
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 4px;
+}
+
+.todo-header h3 { margin: 0; font-size: 18px; }
+.todo-header button { background: transparent; border: 0; color: #cfd6e6; font-size: 18px; cursor: pointer; }
+
+.todo-controls { display: flex; gap: 8px; padding: 8px 4px; }
+.todo-controls input { flex: 1; padding: 8px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); color: #f0f1f9; }
+.todo-controls .btns { padding: 8px 12px; font-size: 14px; }
+
+/* Make the Add button match the Settings blue */
+#addTaskBtn { background-color: #1db3eb; color: #081a21; }
+#addTaskBtn:hover { filter: brightness(0.95); }
+
+.todo-list { list-style: none; padding: 6px; margin: 6px 0; overflow-y: auto; flex: 1; }
+.todo-row { display:flex; align-items:center; gap:8px; padding:8px; border-radius:8px; margin-bottom:6px; background: rgba(255,255,255,0.01); }
+.todo-row.done { opacity: 0.6; text-decoration: line-through; }
+.todo-row input[type="checkbox"] { width:18px; height:18px; }
+.todo-text { flex:1; padding:6px; color:#e6eef6; }
+.todo-text[contenteditable="true"]:focus { outline: 2px solid rgba(29,179,235,0.12); }
+.todo-actions { display:flex; gap:6px; }
+.todo-actions button { background: transparent; border: 0; color: #cfd6e6; cursor: pointer; padding:6px; border-radius:6px; }
+.todo-actions button:hover { background: rgba(255,255,255,0.02); }
+
+.todo-footer { font-size:12px; color:#98a3bd; padding:6px 4px; text-align:center; }
+
+/* Drag-over visual hint */
+/* drag/drop indicators removed (drag-and-drop disabled) */
+
+@media (max-width: 720px) {
+    #todoSidebar { width: 88vw; }
 }
 
 /*Mobile*/
@@ -300,9 +516,7 @@ h2 {
         gap: 35vw;
         font-size: 3vw;
     }
-    #theme{
-        display: none;
-    }
+    /* theme removed */
     #task {
     display: none;
     }
